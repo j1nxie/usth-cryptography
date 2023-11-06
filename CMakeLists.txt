@@ -28,6 +28,16 @@ add_test(
     COMMAND $<TARGET_FILE:assignment-03-test-encryption>
 )
 
+add_test(
+    NAME assignment-03-test-parameters-01
+    COMMAND $<TARGET_FILE:assignment-03-test-parameters-01>
+)
+
+add_test(
+    NAME assignment-03-test-parameters-02
+    COMMAND $<TARGET_FILE:assignment-03-test-parameters-02>
+)
+
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
 include(CPack)
