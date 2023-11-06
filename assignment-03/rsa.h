@@ -16,6 +16,8 @@ namespace RSA {
 
     PrivateKey generate_private_key(uint64_t e, uint64_t p, uint64_t q);
     PublicKey generate_public_key(uint64_t e, uint64_t p, uint64_t q);
+    uint64_t encrypt(uint64_t message, PublicKey public_key);
+    uint64_t decrypt(uint64_t message, PrivateKey private_key);
 } // namespace RSA
 
 #endif
