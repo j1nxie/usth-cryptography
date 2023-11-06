@@ -111,4 +111,8 @@ namespace RSA {
     uint64_t decrypt(uint64_t message, PrivateKey private_key) {
         return modular_exponentiation(message, private_key.d, private_key.n);
     }
+
+    uint64_t calculate_base(uint64_t p, uint64_t q, uint64_t d) {
+        return modular_inverse(d, lcm(p - 1, q - 1));
+    }
 } // namespace RSA
