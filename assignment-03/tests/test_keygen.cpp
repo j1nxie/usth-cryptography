@@ -3,9 +3,6 @@
 #include <iostream>
 
 int main() {
-    int p = 61;
-    int q = 53;
-
     RSA::PrivateKey private_key = RSA::generate_private_key(17, 61, 53);
     RSA::PublicKey public_key = RSA::generate_public_key(17, 61, 53);
 
