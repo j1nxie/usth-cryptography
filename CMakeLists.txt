@@ -15,6 +15,9 @@ target_link_libraries(assignment-03-test-encryption PRIVATE rsa)
 add_executable(assignment-03-test-parameters-01 assignment-03/tests/test_rsa_02.cpp)
 target_link_libraries(assignment-03-test-parameters-01 PRIVATE rsa PUBLIC fmt)
 
+add_executable(assignment-03-test-parameters-02 assignment-03/tests/test_rsa_03.cpp)
+target_link_libraries(assignment-03-test-parameters-02 PRIVATE rsa PUBLIC fmt)
+
 add_test(
     NAME assignment-03-test-keygen
     COMMAND $<TARGET_FILE:assignment-03-test-keygen>
