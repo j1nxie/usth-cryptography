@@ -1,4 +1,5 @@
 #include "rsa.h"
+#include "../assignment-02/modular_exponentiation.h"
 #include <cinttypes>
 #include <cmath>
 
@@ -74,25 +75,6 @@ namespace RSA {
         return (a * b / gcd(a, b, x, y));
     }
 
-    uint64_t modular_exponentiation(uint64_t base, uint64_t exponent,
-                                    uint64_t modulus) {
-        if (exponent == 0) {
-            return 1;
-        }
-
-        if (exponent == 1) {
-            return base % modulus;
-        }
-
-        uint64_t result = modular_exponentiation(base, exponent / 2, modulus);
-
-        if (exponent % 2 == 0) {
-            return (result * result) % modulus;
-        }
-
-        return (((result * result) % modulus) * base) % modulus;
-    }
-
     PrivateKey generate_private_key(uint64_t e, uint64_t p, uint64_t q) {
         uint64_t lambda = lcm(p - 1, q - 1);
         uint64_t d = modular_inverse(e, lambda);
@@ -105,11 +87,13 @@ namespace RSA {
     }
 
     uint64_t encrypt(uint64_t message, PublicKey public_key) {
-        return modular_exponentiation(message, public_key.e, public_key.n);
+        return ModularExponentiation::modular_exponentiation(
+            message, public_key.e, public_key.n);
     }
 
     uint64_t decrypt(uint64_t message, PrivateKey private_key) {
-        return modular_exponentiation(message, private_key.d, private_key.n);
+        return ModularExponentiation::modular_exponentiation(
+            message, private_key.d, private_key.n);
     }
 
     uint64_t calculate_base(uint64_t p, uint64_t q, uint64_t d) {
