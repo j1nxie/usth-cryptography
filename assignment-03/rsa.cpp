@@ -1,6 +1,5 @@
 #include "rsa.h"
 #include "../assignment-02/modular_exponentiation.h"
-#include <cinttypes>
 #include <cmath>
 
 namespace RSA {

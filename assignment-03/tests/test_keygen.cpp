@@ -1,6 +1,5 @@
 #include "../rsa.h"
 #include <cassert>
-#include <iostream>
 
 int main() {
     RSA::PrivateKey private_key = RSA::generate_private_key(17, 61, 53);

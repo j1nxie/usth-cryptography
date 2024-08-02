@@ -1,6 +1,5 @@
 #include "../rsa.h"
 #include <cassert>
-#include <cinttypes>
 #include <fmt/core.h>
 
 int main() {
